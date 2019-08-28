@@ -1,0 +1,55 @@
+@echo off
+title CTZ Script!
+echo BuildYourTune!
+cd "C:\Program Files (x86)\EFILive\V8"
+
+
+:begin
+echo =============
+echo - Select a Tune Level
+
+echo 1) 0HP No Em No TCM
+echo 2) 0HP No Em W/ TCM
+echo 3) 50HP No Em No TCM
+echo 4) 50HP No Em W/ TCM
+echo 5) 100HP No Em No TCM
+echo 6) 100HP No Em W/TCM
+echo 7) 150HPNo Em No TCM
+echo 8) 150HP No Em W/TCM
+echo 9) 200HP No Em No TCM
+echo 10) 200HP No Em W/TCM
+echo ====================
+echo Please enter tune selection:
+
+set /p a=
+IF %a%==1 (set basefile="0HP_Removed")
+IF %a%==2 (set basefile="0HP_Removed_Trans")
+IF %a%==3 (set basefile="50HP_Removed")
+IF %a%==4 (set basefile="50HP_Removed_Trans")
+IF %a%==5 (set basefile="100HP_Removed")
+IF %a%==6 (set basefile="100HP_Removed_Trans")
+IF %a%==7 (set basefile="0HP_Removed")
+IF %a%==8 (set basefile="0HP_Removed")
+IF %a%==9 (set basefile="0HP_Removed")
+IF %a%==10 (set basefile="0HP_Removed")
+
+
+
+
+
+
+
+
+echo Please enter file name customer name
+set /p newfile=""
+echo Please enter vin of vehicle tune will be locked to
+set /p  vin="Please enter vin"
+echo Please enter autocal serial number device serial number
+set /p autocal=""
+echo Please enter controller serial # found from read obd from customer
+set /p controller=""
+
+
+efilive_cmdline -sC:\Users\bobby\Documents\EFILive\V8\Scripts\Lock_files_new.lua C:\Users\bobby\Documents\EFILive\V8\Tune\CME\%basefile%.ctz C:\Users\bobby\Documents\EFILive\V8\Tune\CustomerFiles\%newfile%%vin%.ctz %vin% %autocal% %controller% forAutoCal
+pause
+

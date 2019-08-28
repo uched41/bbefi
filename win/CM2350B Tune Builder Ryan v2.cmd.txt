@@ -1,0 +1,110 @@
+::[Bat To Exe Converter]
+::
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCyDJGyX8VAjFBlbTgabAE+/Fb4I5/jHysyujkQLUaIbd4vc3/S6Ne4WyFDteZIoxEYLyJ1aWk8MMBuoYUE9qmEi
+::YAwzuBVtJxjWCl3EqQJgSA==
+::ZR4luwNxJguZRRmG+0AyMXs=
+::Yhs/ulQjdF+5
+::cxAkpRVqdFKZSDk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSDk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpCI=
+::egkzugNsPRvcWATEpCI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+IeA==
+::cxY6rQJ7JhzQF1fEqQIGeVUFLA==
+::ZQ05rAF9IBncCkqN+0xwdVs0
+::ZQ05rAF9IAHYFVzEqQIEPRVRDCKLMG76JKAV5Oy77uSD4mESV+lf
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWHyH/E0RJBddSQDi
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATE0UE4JzpYQA2HOEK0BfVOuLmijw==
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFBlbTgabAE+/Fb4I5/jHysyujkQLUaIbd4vc3/S6Ne4WyFDteZIoxEZ5tZlfWUsYWzSCLiM9v2sClWuLIcKOpwrzCl7YqBh+Hn1x5w==
+::YB416Ek+ZG8=
+::
+::
+::978f952a14a936cc963da21a135fa983
+@echo off
+title 0HP No Em Script!
+echo BuildYourTune!
+cd "C:\Program Files (x86)\EFILive\V8"
+
+
+:begin
+echo =============
+echo - Select a Tune Level
+
+echo 1) 0hp-Base-Delete-No-TCM
+echo 2) 0hp-Base-Delete-TCM-170PSI
+echo 3) 0hp-Base-Delete-TCM-225PSI
+echo 4) 50hp-Base-Delete-No-TCM
+echo 5) 50hp-Base-Delete-TCM-170PSI
+echo 6) 50hp-Base-Delete-TCM-225PSI
+echo 7) 75hp-Base-Delete-No-TCM
+echo 8) 75hp-Base-Delete-TCM-170PSI
+echo 9) 75hp-Base-Delete-TCM-225PSI
+echo 10) 100hp-Base-Delete-No-TCM
+echo 11) 100hp-Base-Delete-TCM-170PSI
+echo 12) 100hp-Base-Delete-TCM-225PSI
+echo 13) 150hp-Base-Delete-No-TCM
+echo 14) 150hp-Base-Delete-TCM-170PSI
+echo 15) 150hp-Base-Delete-TCM-225PSI
+echo 16) 230hp-Base-Delete-No-TCM
+echo 17) 230hp-Base-Delete-TCM-170PSI
+echo 18) 230hp-Base-Delete-TCM-225PSI
+echo 19) Csp4-Base-Delete-No-TCM
+echo 20) Csp4-Base-Delete-TCM-170PSI
+echo 21) Csp4-Base-Delete-TCM-225PSI
+echo ====================
+echo Please enter tune selection:
+
+set /p a=
+IF %a%==1 (set basefile="0hp-Base-Delete-No-TCM")
+IF %a%==2 (set basefile="0hp-Base-Delete-TCM-170PSI")
+IF %a%==3 (set basefile="0hp-Base-Delete-TCM-225PSI")
+IF %a%==4 (set basefile="50hp-Base-Delete-No-TCM")
+IF %a%==5 (set basefile="50hp-Base-Delete-TCM-170PSI")
+IF %a%==6 (set basefile="50hp-Base-Delete-TCM-225PSI")
+IF %a%==7 (set basefile="75hp-Base-Delete-No-TCM")
+IF %a%==8 (set basefile="75hp-Base-Delete-TCM-170PSI")
+IF %a%==9 (set basefile="75hp-Base-Delete-TCM-225PSI")
+IF %a%==10 (set basefile="100hp-Base-Delete-No-TCM")
+IF %a%==11 (set basefile="100hp-Base-Delete-TCM-170PSI")
+IF %a%==12 (set basefile="100hp-Base-Delete-TCM-225PSI")
+IF %a%==13 (set basefile="150hp-Base-Delete-No-TCM")
+IF %a%==14 (set basefile="150hp-Base-Delete-TCM-170PSI")
+IF %a%==15 (set basefile="150hp-Base-Delete-TCM-225PSI")
+IF %a%==16 (set basefile="230hp-Base-Delete-No-TCM")
+IF %a%==17 (set basefile="230hp-Base-Delete-TCM-170PSI")
+IF %a%==18 (set basefile="230hp-Base-Delete-TCM-225PSI")
+IF %a%==19 (set basefile="Csp4-Base-Delete-No-TCM")
+IF %a%==20 (set basefile="Csp4-Base-Delete-TCM-170PSI")
+IF %a%==21 (set basefile="Csp4-Base-Delete-TCM-225PSI")
+
+
+echo ==================================
+echo Must have V2 connected to lock tune files
+echo Must have settings in EFI Live set to auto lock on save
+echo ==================================
+
+
+
+echo Please enter file name customer name NO SPACES
+set /p newfile=""
+echo Please enter vin of vehicle tune will be locked to
+set /p  vin=""
+echo Please enter autocal serial number device serial number
+set /p autocal=""
+echo Please enter controller serial # found from read obd from customer
+set /p controller=""
+
+
+efilive_cmdline -sC:\Lock_files_new.lua C:\CME\%basefile%.ctz C:\CustomerFiles\%newfile%%vin%.ctz %vin% %autocal% %controller% forAutoCal
+pause
