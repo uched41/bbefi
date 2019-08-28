@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js" integrity="sha256-M5ZomNNnrnEB2WjSbnty5GWGqq6UuAAVNnWECisgEis=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		  crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/043b0ab429.js"></script>
+		<script src={{url_for('static', filename="main.js")}}> </script>
+	</head>
+	<body style="font-family: 'Roboto', sans-serif;" id="mainBody">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white"
+		 style="font-size:2em; ">
+		 <i class="fas fa-tools mr-3"></i>
+			EFI Custom Tuning
+		</nav>
+		<div class="container mt-4 p-2 shadow border rounded">
+			<div class="container p-1">
+				<span class="py-2 m-2 d-block leading text-muted border-bottom"
+				style="font-size:1.3em">
+					<i class="fas fa-info-circle"></i>
+					Please enter the following details:
+				</span>
+				<div class="mt-4 p-2">
+					<form>
+					  <!-- Company name and Email -->
+					  <div class="form-row mb-3">
+					    <!-- Name of user -->
+						  <div class="col">
+						    <label class="text-muted" for="InputName">
+						    	<i class="far fa-user mr-2"></i> Full Name</label>
+						    <input type="text" class="form-control" id="InputName" aria-describedby="userName" data-bind="value:userName">
+						  </div>
+					    <div class="col">
+					      <label class="text-muted" for="emailAddress">
+					      <i class="fas fa-envelope mr-2"></i>Email address</label>
+					      <input type="email"  id="emailAddress" class="form-control"
+					      data-bind="value:emailAddress">
+					    </div>
+					  </div>
+
+					  <!-- Select vehicle and power -->
+					  <div class="form-row mb-3">
+					    <div class="col">
+					      <label class="text-muted" for="vehicle">
+					      <i class="fas fa-truck-monster mr-2"></i>Vehicle</label>
+					      <select id="vehicle" class="form-control"
+					      data-bind="value:vehicleType, options: vehicleTypeOptions">
+					      </select>
+					    </div>
+					    <div class="col">
+					      <label class="text-muted" for="power">
+					      	<i class="fas fa-fire mr-2"></i> Power Level</label>
+					      <select id="power" class="form-control"
+					      data-bind="value:vehiclePower, options: vehiclePowerOptions">>
+					      </select>
+					    </div>
+					  </div>
+
+					  <!-- Select Body Type and Transmission -->
+					  <div class="form-row mb-3">
+					    <div class="col">
+					      <label class="text-muted" for="bodyType">
+					      <i class="fas fa-truck-moving mr-2"></i>Body Type</label>
+					      <select id="bodyType" class="form-control"
+					      data-bind="value:bodyType, options: bodyTypeOptions">
+					      </select>
+					    </div>
+					    <div class="col">
+					      <label class="text-muted" for="transmission">
+					      	<i class="fas fa-random mr-2"></i> Transmission</label>
+					      <select id="transmission" class="form-control"
+					      data-bind="value:transmission, options: transmissionOptions">>
+					      </select>
+					    </div>
+					  </div>
+
+					  <!-- Select TCM Tune, Turbo and Injectors -->
+					  <div class="form-row mb-3">
+					    <div class="col">
+					      <label class="text-muted" for="tcmTune">
+					      <i class="fas fa-sliders-h mr-2"></i>TCM Tune</label>
+					      <select id="tcmTune" class="form-control"
+					      data-bind="value:tcmTune, options: tcmTuneOptions">
+					      </select>
+					    </div>
+					    <div class="col">
+					      <label class="text-muted" for="turbo">
+					      	<i class="fab fa-gripfire mr-2"></i>Turbo</label>
+					      <select id="turbo" class="form-control"
+					      data-bind="value:turbo, options: turboOptions">>
+					      </select>
+					    </div>
+					    <div class="col">
+					      <label class="text-muted" for="injector">
+					      	<i class="fas fa-space-shuttle mr-2"></i> Injector</label>
+					      <select id="injector" class="form-control"
+					      data-bind="value:injector, options: injectorOptions">>
+					      </select>
+					    </div>
+					  </div>
+
+					  <!-- VIN -->
+					  <div class="form-group">
+					    <label class="text-muted" for="vin">
+					    	<i class="fas fa-id-badge mr-2"></i> VIN
+					    <small>, example:  2A4RR2D18AR321877</small></label>
+					    <input type="text" class="form-control" id="vin" aria-describedby="vin"
+					    	data-bind="value:vin" style="text-transform:uppercase">
+					  </div>
+
+					  <!-- Serial Number -->
+					  <div class="form-group">
+					    <label class="text-muted" for="serialNo">
+					    	<i class="fas fa-list-ol mr-2"></i>Serial Number to V2/ Autocal</label>
+					    <input type="text" class="form-control" id="serialNo" aria-describedby="serialNo" data-bind="value:serialNumber" style="text-transform:uppercase">
+					  </div>
+
+					  <!-- Engine Serial-->
+					  <div class="form-group">
+					    <label class="text-muted" for="engineSerial">
+					    	<i class="fas fa-oil-can mr-2"></i>Engine Serial
+					    	<small>, example:  LGFF132N13245U</small>
+					    </label>
+					    <input type="text" class="form-control" id="engineSerial" aria-describedby="engineSerial" data-bind="value:engineSerial" style="text-transform:uppercase">
+					  </div>
+
+					  <div class="mt-2">
+					  	<button type="submit" class="btn btn-primary btn-lg mt-4"
+					  	data-bind="click:onSubmit">Submit</button>
+					  </div>
+					  
+					</form>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
