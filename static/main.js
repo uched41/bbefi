@@ -41,7 +41,7 @@ function mainPageViewModel(){
 
 	self.vehiclePowerOptions 	= ko.observableArray([
 		null,
-		"Stock File Only", 
+		"Stock File", 
 		"0HP Single File",
 		"50HP Single File",
 		"75HP Single File",
@@ -54,7 +54,7 @@ function mainPageViewModel(){
 
 	self.tcmTuneOptions 		= ko.observableArray([
 		null,
-		"No Tcm Tune wanted",
+		"No Tcm Tune",
 		"170PSI",
 		"225PSI"
 		]);
